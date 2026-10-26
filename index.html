@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BF Céram | Boutique en Ligne - Sanitaires & Robinetterie de Luxe (Alger)</title>
+    <meta name="description" content="Commandez en ligne vos équipements de salle de bain et sanitaires chez BF Céram à Tessala El Merdja. Paiement à la livraison (Cash on Delivery) sur Alger et toute l'Algérie.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#FBF9F5',
+                            100: '#F5F0E8',
+                            200: '#EBE6DF',
+                            300: '#D8CF00',
+                            700: '#4A4640',
+                            800: '#2C2A26',
+                            900: '#1C1C1A',
+                        },
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A059',
+                            600: '#B08B46',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FBF9F5;
+            color: #1C1C1A;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FBF9F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D8D2C9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(rgba(197, 160, 89, 0.12) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="antialiased text-stone-900 selection:bg-gold-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-stone-900 text-stone-200 text-xs py-2 px-4 text-center font-medium flex justify-center items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>🚚 Commandez en ligne • <strong>Paiement à la livraison (Cash à la réception)</strong> sur Alger & environs</span>
+        <span class="hidden md:inline text-stone-600">|</span>
+        <a href="tel:0673132498" class="hidden md:inline hover:text-gold-500 transition-colors font-semibold">📞 0673 13 24 98</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-stone-50/95 backdrop-blur-md border-b border-stone-200/70 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-sm bg-stone-900 text-gold-500 flex items-center justify-center font-serif text-xl font-bold tracking-tighter shadow-md group-hover:bg-gold-500 group-hover:text-stone-900 transition-colors duration-300">
+                    BF
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold tracking-tight text-stone-900 leading-none">BF CÉRAM</span>
+                    <span class="text-[10px] tracking-widest uppercase text-stone-500 mt-1 font-semibold">E-Commerce & Showroom</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-stone-700">
+                <a href="#accueil" class="hover:text-gold-500 transition-colors">Accueil</a>
+                <a href="#catalogue" class="hover:text-gold-500 transition-colors">Boutique / Catalogue</a>
+                <a href="#avis" class="hover:text-gold-500 transition-colors">Avis Clients</a>
+                <a href="#contact" class="hover:text-gold-500 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Header Actions: Cart & Quick Contact -->
+            <div class="flex items-center gap-3">
+                
+                <!-- CART BUTTON WITH BADGE -->
+                <button id="open-cart-btn" class="relative flex items-center gap-2 px-4 py-2.5 rounded-full bg-stone-900 text-stone-50 hover:bg-gold-500 hover:text-stone-900 transition-all shadow-md group">
+                    <i data-lucide="shopping-bag" class="w-4 h-4 text-gold-500 group-hover:text-stone-900"></i>
+                    <span class="text-xs font-bold uppercase tracking-wider hidden sm:inline">Mon Panier</span>
+                    <span id="cart-count-badge" class="w-5 h-5 rounded-full bg-gold-500 text-stone-900 group-hover:bg-stone-900 group-hover:text-white text-[11px] font-extrabold flex items-center justify-center transition-colors">0</span>
+                </button>
+
+                <!-- Mobile Menu Trigger -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-stone-800 hover:bg-stone-200/60" aria-label="Menu principal">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-stone-200 bg-stone-50 px-4 pt-4 pb-6 space-y-3">
+            <a href="#accueil" class="mobile-link block text-base font-medium text-stone-800 hover:text-gold-500 py-1">Accueil</a>
+            <a href="#catalogue" class="mobile-link block text-base font-medium text-stone-800 hover:text-gold-500 py-1">Catalogue Produits</a>
+            <a href="#avis" class="mobile-link block text-base font-medium text-stone-800 hover:text-gold-500 py-1">Avis Clients (4.6★)</a>
+            <a href="#contact" class="mobile-link block text-base font-medium text-stone-800 hover:text-gold-500 py-1">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO E-COMMERCE SECTION -->
+        <section id="accueil" class="relative min-h-[80vh] flex items-center pt-8 pb-16 overflow-hidden hero-pattern">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <div class="lg:col-span-7 space-y-8 text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/80 border border-stone-300 text-stone-900 text-xs font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-gold-500"></span>
+                            <span>E-Commerce BF Céram • Cash on Delivery (الدفع عند الاستلام)</span>
+                        </div>
+
+                        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 leading-[1.15]">
+                            Equipez votre salle de bain. <span class="italic font-normal text-gold-600">Payez à la livraison.</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-stone-700 leading-relaxed max-w-2xl">
+                            Commandez directement nos mitigeurs, colonnes de douche et vasques haut de gamme. Recevez votre commande à domicile sur Alger & environs et ne payez qu'après vérification du colis.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                            <a href="#catalogue" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-stone-900 text-white font-semibold text-sm hover:bg-gold-500 hover:text-stone-900 transition-all duration-300 shadow-lg">
+                                <span>Commander en ligne</span>
+                                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                            </a>
+                            
+                            <a href="tel:0673132498" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl border border-stone-300 text-stone-800 font-semibold text-sm hover:bg-stone-200/50 transition-colors">
+                                <i data-lucide="phone-call" class="w-4 h-4 text-gold-600"></i>
+                                <span>Commander par Téléphone</span>
+                            </a>
+                        </div>
+
+                        <!-- Highlights Banner -->
+                        <div class="pt-8 border-t border-stone-200/80 grid grid-cols-3 gap-4 text-left">
+                            <div>
+                                <p class="font-serif text-2xl font-bold text-stone-900">COD 100%</p>
+                                <p class="text-xs text-stone-600 mt-0.5">Paiement main à main</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-2xl font-bold text-stone-900">48h-72h</p>
+                                <p class="text-xs text-stone-600 mt-0.5">Livraison Express</p>
+                            </div>
+                            <div>
+                                <p class="font-serif text-2xl font-bold text-stone-900">Garantie</p>
+                                <p class="text-xs text-stone-600 mt-0.5">Vérification du produit</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 relative">
+                        <!-- Hero Placeholder Asset replacing external image -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-stone-200 border border-stone-300 aspect-[4/5] flex flex-col items-center justify-center p-8 text-center group">
+                            <div class="w-20 h-20 rounded-2xl bg-stone-300/80 text-stone-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="sparkles" class="w-10 h-10 text-gold-600"></i>
+                            </div>
+                            <span class="font-serif text-2xl font-bold text-stone-800">BF CÉRAM</span>
+                            <span class="text-xs uppercase tracking-widest text-gold-600 mt-1 font-semibold">Collections Sanitaires & Robinetterie</span>
+                            <div class="mt-4 px-4 py-1.5 rounded-full bg-stone-300/60 text-stone-600 text-xs font-medium border border-stone-300">
+                                Visuel Showroom à venir
+                            </div>
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-900/40 via-transparent to-transparent"></div>
+
+                            <div class="absolute bottom-6 left-6 right-6 bg-stone-900/90 backdrop-blur-md p-5 rounded-xl border border-stone-700 text-white shadow-xl text-left">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center shrink-0">
+                                        <i data-lucide="truck" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-semibold tracking-wider uppercase text-gold-400">Service Livraison Algérie</p>
+                                        <p class="text-sm font-medium text-stone-200 mt-0.5">Expédition sécurisée avec paiement en espèces.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- E-COMMERCE CATALOGUE & SHOPPING SECTION -->
+        <section id="catalogue" class="py-20 bg-stone-100/60 border-t border-stone-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Boutique en Ligne</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Catalogue des Produits Disponibles</h2>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap gap-2" id="filter-buttons">
+                        <button data-filter="all" class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold tracking-wide bg-stone-900 text-white transition-all">Tous les produits</button>
+                        <button data-filter="robinetterie" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold tracking-wide bg-stone-200 text-stone-800 hover:bg-stone-300 transition-all">Robinetterie</button>
+                        <button data-filter="sanitaires" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold tracking-wide bg-stone-200 text-stone-800 hover:bg-stone-300 transition-all">Colonnes & Douches</button>
+                        <button data-filter="eviers" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold tracking-wide bg-stone-200 text-stone-800 hover:bg-stone-300 transition-all">Vasques & Éviers</button>
+                        <button data-filter="accessoires" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold tracking-wide bg-stone-200 text-stone-800 hover:bg-stone-300 transition-all">Accessoires</button>
+                    </div>
+                </div>
+
+                <!-- Product Grid (Dynamic Data Attributes) -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+                    
+                    <!-- Product Card 1 -->
+                    <div class="product-card rounded-2xl bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" 
+                         data-category="robinetterie"
+                         data-id="1"
+                         data-title="Mitigeur Noir Mat Minimaliste"
+                         data-price="18500"
+                         data-img="placeholder-1">
+                        <div>
+                            <!-- Custom Ceramic Placeholder 1 -->
+                            <div class="relative h-64 bg-stone-200/70 border-b border-stone-200 flex flex-col items-center justify-center p-6 text-center group">
+                                <div class="w-14 h-14 rounded-xl bg-stone-300/80 text-stone-700 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="droplet" class="w-7 h-7 text-gold-600"></i>
+                                </div>
+                                <span class="text-xs font-bold text-stone-600 tracking-wider uppercase">Image à venir</span>
+                                <span class="text-[10px] text-stone-400 mt-0.5">BF Céram Collection</span>
+                                <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white"></span> En Stock
+                                </span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold text-stone-900">Mitigeur Noir Mat Minimaliste</h3>
+                                <p class="text-xs text-stone-500 mt-1 mb-3">Cartouche céramique • Anti-traces d'eau</p>
+                                <div class="flex items-baseline gap-2 mb-4">
+                                    <span class="text-2xl font-bold font-serif text-stone-900">18 500 DA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-0 space-y-2">
+                            <button class="add-to-cart-btn w-full py-3 rounded-xl bg-stone-900 text-white font-semibold text-xs hover:bg-gold-500 hover:text-stone-900 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                            <button class="buy-now-btn w-full py-2.5 rounded-xl border border-stone-300 text-stone-800 font-semibold text-xs hover:bg-stone-100 transition-colors">
+                                Acheter Maintenant (COD)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card rounded-2xl bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" 
+                         data-category="sanitaires"
+                         data-id="2"
+                         data-title="Colonne de Douche Thermostatique Pluie"
+                         data-price="34000"
+                         data-img="placeholder-2">
+                        <div>
+                            <!-- Custom Ceramic Placeholder 2 -->
+                            <div class="relative h-64 bg-stone-200/70 border-b border-stone-200 flex flex-col items-center justify-center p-6 text-center group">
+                                <div class="w-14 h-14 rounded-xl bg-stone-300/80 text-stone-700 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="shower-head" class="w-7 h-7 text-gold-600"></i>
+                                </div>
+                                <span class="text-xs font-bold text-stone-600 tracking-wider uppercase">Image à venir</span>
+                                <span class="text-[10px] text-stone-400 mt-0.5">BF Céram Collection</span>
+                                <span class="absolute top-4 left-4 bg-gold-500 text-stone-900 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Best Seller</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold text-stone-900">Colonne de Douche Thermostatique Pluie</h3>
+                                <p class="text-xs text-stone-500 mt-1 mb-3">Effet pluie tropicale • Acier inoxydable 304</p>
+                                <div class="flex items-baseline gap-2 mb-4">
+                                    <span class="text-2xl font-bold font-serif text-stone-900">34 000 DA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-0 space-y-2">
+                            <button class="add-to-cart-btn w-full py-3 rounded-xl bg-stone-900 text-white font-semibold text-xs hover:bg-gold-500 hover:text-stone-900 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                            <button class="buy-now-btn w-full py-2.5 rounded-xl border border-stone-300 text-stone-800 font-semibold text-xs hover:bg-stone-100 transition-colors">
+                                Acheter Maintenant (COD)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="product-card rounded-2xl bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" 
+                         data-category="eviers"
+                         data-id="3"
+                         data-title="Vasque à Poser Céramique Artisanale"
+                         data-price="22500"
+                         data-img="placeholder-3">
+                        <div>
+                            <!-- Custom Ceramic Placeholder 3 -->
+                            <div class="relative h-64 bg-stone-200/70 border-b border-stone-200 flex flex-col items-center justify-center p-6 text-center group">
+                                <div class="w-14 h-14 rounded-xl bg-stone-300/80 text-stone-700 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="bath" class="w-7 h-7 text-gold-600"></i>
+                                </div>
+                                <span class="text-xs font-bold text-stone-600 tracking-wider uppercase">Image à venir</span>
+                                <span class="text-[10px] text-stone-400 mt-0.5">BF Céram Collection</span>
+                                <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">En Stock</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold text-stone-900">Vasque à Poser Céramique Artisanale</h3>
+                                <p class="text-xs text-stone-500 mt-1 mb-3">Finition Blanc Minéral • Surface anti-bactérienne</p>
+                                <div class="flex items-baseline gap-2 mb-4">
+                                    <span class="text-2xl font-bold font-serif text-stone-900">22 500 DA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-0 space-y-2">
+                            <button class="add-to-cart-btn w-full py-3 rounded-xl bg-stone-900 text-white font-semibold text-xs hover:bg-gold-500 hover:text-stone-900 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                            <button class="buy-now-btn w-full py-2.5 rounded-xl border border-stone-300 text-stone-800 font-semibold text-xs hover:bg-stone-100 transition-colors">
+                                Acheter Maintenant (COD)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="product-card rounded-2xl bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" 
+                         data-category="robinetterie"
+                         data-id="4"
+                         data-title="Mitigeur Doré Brossé Luxueux"
+                         data-price="21000"
+                         data-img="placeholder-4">
+                        <div>
+                            <!-- Custom Ceramic Placeholder 4 -->
+                            <div class="relative h-64 bg-stone-200/70 border-b border-stone-200 flex flex-col items-center justify-center p-6 text-center group">
+                                <div class="w-14 h-14 rounded-xl bg-stone-300/80 text-stone-700 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="sparkle" class="w-7 h-7 text-gold-600"></i>
+                                </div>
+                                <span class="text-xs font-bold text-stone-600 tracking-wider uppercase">Image à venir</span>
+                                <span class="text-[10px] text-stone-400 mt-0.5">BF Céram Collection</span>
+                                <span class="absolute top-4 left-4 bg-stone-900 text-gold-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Or Brossé</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold text-stone-900">Mitigeur Doré Brossé Luxueux</h3>
+                                <p class="text-xs text-stone-500 mt-1 mb-3">Traitement PVD anti-rayures • Finition dorée</p>
+                                <div class="flex items-baseline gap-2 mb-4">
+                                    <span class="text-2xl font-bold font-serif text-stone-900">21 000 DA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-0 space-y-2">
+                            <button class="add-to-cart-btn w-full py-3 rounded-xl bg-stone-900 text-white font-semibold text-xs hover:bg-gold-500 hover:text-stone-900 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                            <button class="buy-now-btn w-full py-2.5 rounded-xl border border-stone-300 text-stone-800 font-semibold text-xs hover:bg-stone-100 transition-colors">
+                                Acheter Maintenant (COD)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 5 -->
+                    <div class="product-card rounded-2xl bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" 
+                         data-category="eviers"
+                         data-id="5"
+                         data-title="Évier de Cuisine Quartz Encastrable"
+                         data-price="29500"
+                         data-img="placeholder-5">
+                        <div>
+                            <!-- Custom Ceramic Placeholder 5 -->
+                            <div class="relative h-64 bg-stone-200/70 border-b border-stone-200 flex flex-col items-center justify-center p-6 text-center group">
+                                <div class="w-14 h-14 rounded-xl bg-stone-300/80 text-stone-700 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="square" class="w-7 h-7 text-gold-600"></i>
+                                </div>
+                                <span class="text-xs font-bold text-stone-600 tracking-wider uppercase">Image à venir</span>
+                                <span class="text-[10px] text-stone-400 mt-0.5">BF Céram Collection</span>
+                                <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">En Stock</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold text-stone-900">Évier de Cuisine Quartz Encastrable</h3>
+                                <p class="text-xs text-stone-500 mt-1 mb-3">Résistant aux chocs et températures</p>
+                                <div class="flex items-baseline gap-2 mb-4">
+                                    <span class="text-2xl font-bold font-serif text-stone-900">29 500 DA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-0 space-y-2">
+                            <button class="add-to-cart-btn w-full py-3 rounded-xl bg-stone-900 text-white font-semibold text-xs hover:bg-gold-500 hover:text-stone-900 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                            <button class="buy-now-btn w-full py-2.5 rounded-xl border border-stone-300 text-stone-800 font-semibold text-xs hover:bg-stone-100 transition-colors">
+                                Acheter Maintenant (COD)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 6 -->
+                    <div class="product-card rounded-2xl bg-white border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between" 
+                         data-category="accessoires"
+                         data-id="6"
+                         data-title="Set d'Accessoires de Salle de Bain Assortis"
+                         data-price="9800"
+                         data-img="placeholder-6">
+                        <div>
+                            <!-- Custom Ceramic Placeholder 6 -->
+                            <div class="relative h-64 bg-stone-200/70 border-b border-stone-200 flex flex-col items-center justify-center p-6 text-center group">
+                                <div class="w-14 h-14 rounded-xl bg-stone-300/80 text-stone-700 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                    <i data-lucide="layers" class="w-7 h-7 text-gold-600"></i>
+                                </div>
+                                <span class="text-xs font-bold text-stone-600 tracking-wider uppercase">Image à venir</span>
+                                <span class="text-[10px] text-stone-400 mt-0.5">BF Céram Collection</span>
+                                <span class="absolute top-4 left-4 bg-stone-900 text-gold-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Pack 4 Pièces</span>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold text-stone-900">Set d'Accessoires de Salle de Bain Assortis</h3>
+                                <p class="text-xs text-stone-500 mt-1 mb-3">Porte-serviette, crochet, porte-savon & distributeur</p>
+                                <div class="flex items-baseline gap-2 mb-4">
+                                    <span class="text-2xl font-bold font-serif text-stone-900">9 800 DA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-0 space-y-2">
+                            <button class="add-to-cart-btn w-full py-3 rounded-xl bg-stone-900 text-white font-semibold text-xs hover:bg-gold-500 hover:text-stone-900 transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                            <button class="buy-now-btn w-full py-2.5 rounded-xl border border-stone-300 text-stone-800 font-semibold text-xs hover:bg-stone-100 transition-colors">
+                                Acheter Maintenant (COD)
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- REVIEWS & GOOGLE RATING -->
+        <section id="avis" class="py-20 bg-stone-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Avis Clients Authentiques</span>
+                        <h2 class="font-serif text-3xl font-bold text-stone-900 mt-1">4.6 / 5 sur Google Maps (54+ avis)</h2>
+                    </div>
+                    <a href="https://maps.google.com/?q=JWH7%2BV6W,+Tessala+El+Merdja,+Alger" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-stone-900 hover:text-gold-600">
+                        <span>Voir tous les avis sur Google</span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                        <div class="flex items-center gap-1 text-gold-500 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                        </div>
+                        <p class="text-sm text-stone-700 italic mb-4">"Livraison très rapide sur Alger et paiement à la réception sans problème. Le produit est conforme aux photos."</p>
+                        <p class="text-xs font-bold text-stone-900">Karim B. — Alger</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                        <div class="flex items-center gap-1 text-gold-500 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                        </div>
+                        <p class="text-sm text-stone-700 italic mb-4">"Prix très abordables par rapport aux magasins d'Alger et service après-vente réactif."</p>
+                        <p class="text-xs font-bold text-stone-900">Nadia M. — Blida</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                        <div class="flex items-center gap-1 text-gold-500 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-gold-500"></i>
+                        </div>
+                        <p class="text-sm text-stone-700 italic mb-4">"Très bel accueil au showroom de Tessala El Merdja. Matériel robuste."</p>
+                        <p class="text-xs font-bold text-stone-900">Amine T. — Boumerdès</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SHOWROOM LOCATION & CONTACT -->
+        <section id="contact" class="py-16 bg-white border-t border-stone-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-600">Notre Showroom Physique</span>
+                        <h2 class="font-serif text-3xl font-bold text-stone-900">BF Céram (BF Ceram / BF J'ESPÈRE)</h2>
+                        <p class="text-sm text-stone-600">Vous préférez voir et toucher les sanitaires avant d'acheter ? Visitez notre showroom principal à Tessala El Merdja.</p>
+                        
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-center gap-3 text-sm text-stone-700">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-gold-600"></i>
+                                <span>JWH7+V6W, Tessala El Merdja, Alger (Algérie)</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-stone-700">
+                                <i data-lucide="phone" class="w-5 h-5 text-gold-600"></i>
+                                <div class="flex gap-4">
+                                    <a href="tel:0673132498" class="font-semibold hover:text-gold-600">0673 13 24 98</a>
+                                    <a href="tel:0799067037" class="font-semibold hover:text-gold-600">0799 06 70 37</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-stone-700">
+                                <i data-lucide="clock" class="w-5 h-5 text-gold-600"></i>
+                                <span>Samedi au Jeudi : 09h00 – 17h00 (Vendredi fermé)</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex gap-4">
+                            <a href="https://maps.google.com/?q=JWH7%2BV6W,+Tessala+El+Merdja,+Alger" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-gold-500 hover:text-stone-900 transition-all">
+                                <i data-lucide="map" class="w-4 h-4"></i>
+                                <span>Itinéraire Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6 rounded-2xl overflow-hidden border border-stone-200 h-80 bg-stone-200">
+                        <!-- Embedded Map Graphic Placeholder -->
+                        <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-stone-100">
+                            <i data-lucide="map-pin" class="w-12 h-12 text-gold-600 mb-3 animate-bounce"></i>
+                            <h3 class="font-serif text-lg font-bold text-stone-900">BF Céram — Tessala El Merdja</h3>
+                            <p class="text-xs text-stone-500 mt-1 max-w-sm">JWH7+V6W, Tessala El Merdja, Alger, Algérie</p>
+                            <a href="https://maps.google.com/?q=JWH7%2BV6W,+Tessala+El+Merdja,+Alger" target="_blank" class="mt-4 text-xs font-bold text-gold-600 hover:underline">Ouvrir dans Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© 2026 BF Céram (BF Ceram / BF J'ESPÈRE). Tous droits réservés.</p>
+            <div class="flex gap-6">
+                <span>Paiement à la Livraison (COD)</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SLIDE-OVER CART DRAWER -->
+    <div id="cart-drawer-backdrop" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <!-- Cart Header -->
+        <div class="p-6 border-b border-stone-200 flex items-center justify-between bg-stone-50">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-gold-600"></i>
+                <h3 class="font-serif text-xl font-bold text-stone-900">Votre Panier</h3>
+            </div>
+            <button id="close-cart-btn" class="p-2 text-stone-500 hover:text-stone-900">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items Scroll Area -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Dynamic Items Injected via JS -->
+            <div id="empty-cart-msg" class="text-center py-12 text-stone-400">
+                <i data-lucide="shopping-cart" class="w-12 h-12 mx-auto mb-3 opacity-40"></i>
+                <p class="text-sm font-medium">Votre panier est actuellement vide.</p>
+                <a href="#catalogue" onclick="closeCart()" class="mt-4 inline-block text-xs font-bold text-gold-600 underline">Découvrir nos produits</a>
+            </div>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-6 border-t border-stone-200 bg-stone-50 space-y-4">
+            <div class="space-y-1.5 text-xs text-stone-600">
+                <div class="flex justify-between">
+                    <span>Sous-total articles :</span>
+                    <span id="cart-subtotal" class="font-bold text-stone-900">0 DA</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Mode de paiement :</span>
+                    <span class="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">Cash à la livraison</span>
+                </div>
+            </div>
+
+            <button id="cart-checkout-btn" disabled class="w-full py-4 rounded-xl bg-stone-900 text-white font-semibold text-sm hover:bg-gold-500 hover:text-stone-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                Passer la commande (Paiement COD)
+            </button>
+        </div>
+    </aside>
+
+    <!-- CHECKOUT MODAL (COD CASH ON DELIVERY) -->
+    <div id="checkout-modal-backdrop" class="fixed inset-0 bg-stone-900/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        
+        <div id="checkout-modal" class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-stone-200 p-6 sm:p-8 transform scale-95 transition-transform duration-300">
+            
+            <div class="flex items-center justify-between pb-4 border-b border-stone-200">
+                <div>
+                    <h3 class="font-serif text-2xl font-bold text-stone-900">Finaliser la Commande</h3>
+                    <p class="text-xs text-stone-500">Paiement en espèces lors de la réception du colis</p>
+                </div>
+                <button id="close-checkout-btn" class="p-2 text-stone-400 hover:text-stone-900">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Checkout Form -->
+            <form id="cod-checkout-form" class="mt-6 space-y-4">
+                
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Nom & Prénom *</label>
+                    <input type="text" id="cust-name" required placeholder="Ex: Karim Benali" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:border-gold-500 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Numéro de Téléphone *</label>
+                    <input type="tel" id="cust-phone" required pattern="^(05|06|07)[0-9]{8}$" placeholder="Ex: 0673132498" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:border-gold-500 text-sm">
+                    <span class="text-[10px] text-stone-400">Format: 06 XX XX XX XX (10 chiffres)</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Wilaya de livraison *</label>
+                        <select id="cust-wilaya" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:border-gold-500 text-sm bg-white">
+                            <option value="16" data-fee="600">16 - Alger (600 DA)</option>
+                            <option value="09" data-fee="700">09 - Blida (700 DA)</option>
+                            <option value="42" data-fee="700">42 - Tipaza (700 DA)</option>
+                            <option value="35" data-fee="700">35 - Boumerdès (700 DA)</option>
+                            <option value="31" data-fee="900">31 - Oran (900 DA)</option>
+                            <option value="25" data-fee="900">25 - Constantine (900 DA)</option>
+                            <option value="19" data-fee="900">19 - Sétif (900 DA)</option>
+                            <option value="other" data-fee="1200">Autre Wilaya (1200 DA)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Commune / Ville *</label>
+                        <input type="text" id="cust-city" required placeholder="Ex: Tessala El Merdja" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:border-gold-500 text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1">Adresse Complète *</label>
+                    <input type="text" id="cust-address" required placeholder="Cité, Rue, Bâtiment..." class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:border-gold-500 text-sm">
+                </div>
+
+                <!-- Payment Method Notice -->
+                <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-3">
+                    <i data-lucide="banknote" class="w-6 h-6 text-amber-700 shrink-0"></i>
+                    <div class="text-xs text-amber-900">
+                        <strong class="font-semibold">Mode de paiement : Cash à la livraison</strong>
+                        <p class="text-[11px] text-amber-800 mt-0.5">Vous règlerez le montant total directement au livreur en espèces.</p>
+                    </div>
+                </div>
+
+                <!-- Order Calculation Summary -->
+                <div class="pt-4 border-t border-stone-200 space-y-2 text-xs text-stone-700">
+                    <div class="flex justify-between">
+                        <span>Sous-total articles :</span>
+                        <span id="summary-subtotal" class="font-bold">0 DA</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Frais de livraison :</span>
+                        <span id="summary-shipping" class="font-bold">600 DA</span>
+                    </div>
+                    <div class="flex justify-between text-base font-serif font-bold text-stone-900 pt-2 border-t border-stone-200">
+                        <span>Total à payer à la livraison :</span>
+                        <span id="summary-total" class="text-gold-600">0 DA</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-stone-900 text-white font-bold text-sm hover:bg-gold-500 hover:text-stone-900 transition-all shadow-md mt-4">
+                    Confirmer la Commande (الدفع عند الاستلام)
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- ORDER SUCCESS MODAL -->
+    <div id="success-modal-backdrop" class="fixed inset-0 bg-stone-900/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center space-y-6">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+            </div>
+            <div>
+                <span class="text-xs font-bold text-emerald-700 uppercase tracking-widest">Commande Enregistrée</span>
+                <h3 class="font-serif text-2xl font-bold text-stone-900 mt-1">Merci pour votre confiance !</h3>
+                <p class="text-xs text-stone-600 mt-2">Votre commande <strong id="order-ref-num" class="text-stone-900">#BF-0000</strong> a été reçue avec succès.</p>
+            </div>
+            <div class="p-4 bg-stone-50 rounded-xl text-left text-xs space-y-1.5 text-stone-700">
+                <p><strong>Paiement :</strong> Cash à la livraison (COD)</p>
+                <p><strong>Support client :</strong> 0673 13 24 98</p>
+            </div>
+            <div class="space-y-2">
+                <a id="whatsapp-order-btn" href="#" target="_blank" class="w-full py-3 rounded-xl bg-emerald-600 text-white font-semibold text-xs flex items-center justify-center gap-2 hover:bg-emerald-700 transition-colors">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <span>Envoyer le récapitulatif par WhatsApp</span>
+                </a>
+                <button onclick="closeSuccessModal()" class="w-full py-3 rounded-xl border border-stone-300 text-stone-800 font-semibold text-xs hover:bg-stone-100">
+                    Fermer & Continuer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- E-COMMERCE JAVASCRIPT LOGIC -->
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Application State
+        let cart = [];
+
+        // UI Elements
+        const cartDrawerBackdrop = document.getElementById('cart-drawer-backdrop');
+        const cartDrawer = document.getElementById('cart-drawer');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const emptyCartMsg = document.getElementById('empty-cart-msg');
+        const cartCountBadge = document.getElementById('cart-count-badge');
+        const cartSubtotalEl = document.getElementById('cart-subtotal');
+        const cartCheckoutBtn = document.getElementById('cart-checkout-btn');
+
+        const checkoutModalBackdrop = document.getElementById('checkout-modal-backdrop');
+        const closeCheckoutBtn = document.getElementById('close-checkout-btn');
+        const codForm = document.getElementById('cod-checkout-form');
+        const wilayaSelect = document.getElementById('cust-wilaya');
+
+        const successModalBackdrop = document.getElementById('success-modal-backdrop');
+
+        // Toggle Mobile Navigation
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // Open & Close Cart Drawer
+        function openCart() {
+            cartDrawerBackdrop.classList.remove('hidden');
+            setTimeout(() => {
+                cartDrawerBackdrop.classList.remove('opacity-0');
+                cartDrawer.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeCart() {
+            cartDrawer.classList.add('translate-x-full');
+            cartDrawerBackdrop.classList.add('opacity-0');
+            setTimeout(() => {
+                cartDrawerBackdrop.classList.add('hidden');
+            }, 300);
+        }
+
+        openCartBtn.addEventListener('click', openCart);
+        closeCartBtn.addEventListener('click', closeCart);
+        cartDrawerBackdrop.addEventListener('click', closeCart);
+
+        // Add to Cart Logic
+        function addToCart(product) {
+            const existing = cart.find(item => item.id === product.id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+            updateCartUI();
+            openCart();
+        }
+
+        // Update Cart Drawer UI & Calculations
+        function updateCartUI() {
+            // Update total badge count
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCountBadge.textContent = totalItems;
+
+            if (cart.length === 0) {
+                emptyCartMsg.classList.remove('hidden');
+                cartItemsContainer.querySelectorAll('.cart-item-row').forEach(el => el.remove());
+                cartSubtotalEl.textContent = '0 DA';
+                cartCheckoutBtn.disabled = true;
+                return;
+            }
+
+            emptyCartMsg.classList.add('hidden');
+            
+            // Clear existing rows
+            cartItemsContainer.querySelectorAll('.cart-item-row').forEach(el => el.remove());
+
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+
+                const row = document.createElement('div');
+                row.className = 'cart-item-row flex items-center gap-4 p-3 bg-stone-50 rounded-xl border border-stone-200/70';
+                row.innerHTML = `
+                    <div class="w-14 h-14 rounded-lg bg-stone-200 flex flex-col items-center justify-center shrink-0 border border-stone-300 text-stone-500">
+                        <i data-lucide="package" class="w-5 h-5 text-gold-600"></i>
+                        <span class="text-[8px] font-bold uppercase tracking-wider mt-0.5">Visuel</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-xs font-bold text-stone-900 truncate">${item.title}</h4>
+                        <p class="text-xs text-gold-600 font-bold mt-0.5">${item.price.toLocaleString()} DA</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 rounded bg-stone-200 text-stone-800 text-xs font-bold hover:bg-stone-300">-</button>
+                            <span class="text-xs font-bold px-1">${item.qty}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 rounded bg-stone-200 text-stone-800 text-xs font-bold hover:bg-stone-300">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeItem(${item.id})" class="text-stone-400 hover:text-rose-600 p-1">
+                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                    </button>
+                `;
+                cartItemsContainer.appendChild(row);
+            });
+
+            cartSubtotalEl.textContent = `${subtotal.toLocaleString()} DA`;
+            cartCheckoutBtn.disabled = false;
+            lucide.createIcons();
+        }
+
+        // Change Item Quantity
+        window.changeQty = function(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            updateCartUI();
+        };
+
+        // Remove Single Item
+        window.removeItem = function(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        };
+
+        // Attach Click Listeners to Product Buttons
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('.product-card');
+                const product = {
+                    id: parseInt(card.dataset.id),
+                    title: card.dataset.title,
+                    price: parseInt(card.dataset.price),
+                    img: card.dataset.img
+                };
+                addToCart(product);
+            });
+        });
+
+        document.querySelectorAll('.buy-now-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('.product-card');
+                const product = {
+                    id: parseInt(card.dataset.id),
+                    title: card.dataset.title,
+                    price: parseInt(card.dataset.price),
+                    img: card.dataset.img
+                };
+                addToCart(product);
+                openCheckoutModal();
+            });
+        });
+
+        // Checkout Modal Functions
+        function openCheckoutModal() {
+            closeCart();
+            updateCheckoutSummary();
+            checkoutModalBackdrop.classList.remove('hidden');
+            setTimeout(() => {
+                checkoutModalBackdrop.classList.remove('opacity-0');
+                document.getElementById('checkout-modal').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeCheckoutModal() {
+            checkoutModalBackdrop.classList.add('opacity-0');
+            document.getElementById('checkout-modal').classList.add('scale-95');
+            setTimeout(() => {
+                checkoutModalBackdrop.classList.add('hidden');
+            }, 300);
+        }
+
+        cartCheckoutBtn.addEventListener('click', openCheckoutModal);
+        closeCheckoutBtn.addEventListener('click', closeCheckoutModal);
+
+        // Calculate Checkout Totals based on Wilaya
+        function updateCheckoutSummary() {
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const selectedOption = wilayaSelect.options[wilayaSelect.selectedIndex];
+            const shippingFee = parseInt(selectedOption.dataset.fee) || 600;
+
+            document.getElementById('summary-subtotal').textContent = `${subtotal.toLocaleString()} DA`;
+            document.getElementById('summary-shipping').textContent = `${shippingFee.toLocaleString()} DA`;
+            document.getElementById('summary-total').textContent = `${(subtotal + shippingFee).toLocaleString()} DA`;
+        }
+
+        wilayaSelect.addEventListener('change', updateCheckoutSummary);
+
+        // Submit Checkout Order (COD)
+        codForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const wilayaText = wilayaSelect.options[wilayaSelect.selectedIndex].text;
+            const city = document.getElementById('cust-city').value;
+            const address = document.getElementById('cust-address').value;
+            
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const shippingFee = parseInt(wilayaSelect.options[wilayaSelect.selectedIndex].dataset.fee);
+            const total = subtotal + shippingFee;
+
+            const orderNum = 'BF-' + Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('order-ref-num').textContent = `#${orderNum}`;
+
+            // Generate WhatsApp message string
+            let itemsText = cart.map(i => `• ${i.title} (x${i.qty}) - ${i.price * i.qty} DA`).join('\n');
+            const waMsg = encodeURIComponent(
+                `*NOUVELLE COMMANDE EN LIGNE (COD)*\n` +
+                `Ref: #${orderNum}\n\n` +
+                `*Client:* ${name}\n` +
+                `*Téléphone:* ${phone}\n` +
+                `*Adresse:* ${address}, ${city} (${wilayaText})\n\n` +
+                `*Articles:* \n${itemsText}\n\n` +
+                `*Total à payer à la livraison:* ${total.toLocaleString()} DA`
+            );
+
+            document.getElementById('whatsapp-order-btn').href = `https://wa.me/213673132498?text=${waMsg}`;
+
+            closeCheckoutModal();
+
+            // Clear Cart after order
+            cart = [];
+            updateCartUI();
+
+            // Show Success Modal
+            setTimeout(() => {
+                successModalBackdrop.classList.remove('hidden');
+                setTimeout(() => successModalBackdrop.classList.remove('opacity-0'), 10);
+            }, 350);
+        });
+
+        window.closeSuccessModal = function() {
+            successModalBackdrop.classList.add('opacity-0');
+            setTimeout(() => successModalBackdrop.classList.add('hidden'), 300);
+        };
+
+        // Category Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-stone-900', 'text-white', 'active');
+                    b.classList.add('bg-stone-200', 'text-stone-800');
+                });
+
+                btn.classList.add('bg-stone-900', 'text-white', 'active');
+                btn.classList.remove('bg-stone-200', 'text-stone-800');
+
+                const filter = btn.getAttribute('data-filter');
+
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
